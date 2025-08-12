@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
+
+
+        function getComputerChoice() {
+            let rndm = Math.random();
+            if (rndm <= 0.33) {
+            return "rock";
+             }   else if (rndm <= 0.66){
+                return "paper";
+             }  else {
+                return "scissors"
+             }
+        }
+        //console.log(getComputerChoice());
+        function getHumanChoice(){
+           let humanChoice = prompt("Enter your move!","Rock, Paper or scissors!");
+            return humanChoice;
+        }
+        //console.log(getHumanChoice());
+        function playRound(humanChoice,computerChoice){
+            if ((humanChoice.toLowerCase()) == (computerChoice)){
+                console.log(`Draw!, ${humanChoice} is equal to ${computerChoice}!!.`);
+            }
+            else if ((humanChoice.toLowerCase() == "rock") && (computerChoice == "paper")     ||
+                    (humanChoice.toLowerCase() == "paper") && (computerChoice == "scissors")  ||
+                    (humanChoice.toLowerCase() == "scissors") && (computerChoice == "rock")
+        ) {
+                console.log(`You lost!, ${humanChoice} loses to ${computerChoice}`);
+            } 
+            else if ((humanChoice.toLowerCase() == "rock") && (computerChoice == "scissors") ||
+                    (humanChoice.toLowerCase() == "paper") && (computerChoice == "rock")     ||
+                    (humanChoice.toLowerCase() == "scissors") && (computerChoice == "paper")
+        ) {
+                console.log(`You won!, ${humanChoice} beats ${computerChoice}`);
+            }
+        }
+    const activeHumanChoice = getHumanChoice();
+    const activeComputerChoice = getComputerChoice();
+    playRound(activeHumanChoice,activeComputerChoice);
+    
+    
+    </script>
+
+</body>
+</html>
